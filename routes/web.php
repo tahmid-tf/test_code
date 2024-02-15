@@ -15,11 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+Route::get('/', function () {
+//    return redirect()->route('login');
+
+    return "test";
+});
+
 Auth::routes();
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+
 
 
 Route::get('view_1', function () {
