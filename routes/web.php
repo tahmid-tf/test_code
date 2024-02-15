@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('view_1', function () {
         return view('view1');
 
-    });
+    })->name('view_1');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
