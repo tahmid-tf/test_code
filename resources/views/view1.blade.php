@@ -6,6 +6,27 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable viewing page source
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode == 85 && e.ctrlKey) { // ctrl+u
+                e.preventDefault();
+            }
+        });
+
+        // Disable inspect element
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode == 123) { // F12
+                e.preventDefault();
+            }
+        });
+
+    </script>
 </head>
 <body>
 
@@ -77,40 +98,7 @@
 </body>
 
 
-<script>
-    // Obfuscated JavaScript code to make inspecting and modifying more difficult
-    (function() {
-        var protection = {
-            disableRightClick: function() {
-                document.addEventListener('contextmenu', function(e) {
-                    e.preventDefault();
-                });
-            },
-            disableViewSource: function() {
-                document.addEventListener('keydown', function(e) {
-                    if (e.keyCode == 85 && e.ctrlKey) { // ctrl+u
-                        e.preventDefault();
-                    }
-                });
-            },
-            disableInspectElement: function() {
-                document.addEventListener('keydown', function(e) {
-                    if (e.keyCode == 123) { // F12
-                        e.preventDefault();
-                    }
-                });
-            },
-            init: function() {
-                this.disableRightClick();
-                this.disableViewSource();
-                this.disableInspectElement();
-            }
-        };
 
-        protection.init();
-    })();
-
-</script>
 </html>
 
 
