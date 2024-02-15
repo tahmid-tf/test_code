@@ -15,20 +15,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', function () {
-//    return redirect()->route('login');
-
-    return "test";
-});
-
 Auth::routes();
 
-
-
-
-Route::get('view_1', function () {
-    return view('view1');
-
+Route::get('/', function () {
+    return redirect()->route('login');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    Route::get('view_1', function () {
+        return view('view1');
+
+    });
+
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
+
+
